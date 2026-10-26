@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: smart-college-management-system-web
+    runtime: java
+    plan: free
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/smart-college-management-system-web-1.0.0.jar
+    healthCheckPath: /login
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
